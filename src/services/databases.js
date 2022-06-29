@@ -6,7 +6,7 @@ const connectionString = Config.MONGO_ATLAS_URL
 export const initMongoDB = async () =>{
     try{
         logger.info("Conectado a mi DB");
-        await mongoose.connect(connectionString);
+        await mongoose.connect('mongodb+srv://franco99:Coco2022@cluster0.tvjwd.mongodb.net/eccomerce?retryWrites=true&w=majority');
     }catch(error){
         logger.error(`error => ${error}`);
         return error;
