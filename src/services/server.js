@@ -16,7 +16,7 @@ app.use(compression());
 const ttlSeconds = 180;
 const storeOptions = {
   store: MongoStore.create({
-    mongoUrl: 'mongodb+srv://franco99:Coco2022@cluster0.tvjwd.mongodb.net/eccomerce?retryWrites=true&w=majority' ,
+    mongoUrl: Config.MONGO_ATLAS_URL ,
     crypto: {
       secret: 'squirrel',
     },
