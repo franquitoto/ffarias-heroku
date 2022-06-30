@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+    "engines": {
+      "node": "16.x"
+    },
   "scripts": {
     "build": "npm install && babel src --out-dir dist",
     "start": "npm run build && node dist/index.js --cluster",
