@@ -11,7 +11,7 @@
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
     "start": "npm run build && node ./build/index.js",
-    "ejemplo": "npm run build && node ./dist/index.js",
+    "ejemplo": "node ./dist/index.js",
     "dev": "nodemon --exec babel-node ./src/index.js",
     "artillery:cluster" : "artillery quick --count 50 -n 40 http://localhost:8080/info",
     "artillery:fork" : "artillery quick --count 50 -n 40 http://localhost:8080/info > result_.txt",
