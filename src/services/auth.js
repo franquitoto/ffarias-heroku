@@ -2,6 +2,7 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import {UserModel} from '../models/user';
 import { logger } from './logger';
+import { enviarEmail } from './gmail';
 
 const strategyOptions = {
   usernameField: 'usuario',
@@ -9,20 +10,25 @@ const strategyOptions = {
   passReqToCallback: true,
 };
 
+
 const login = async (req, username, password, done) => {
   logger.info('LOGIN!!');
   const user = await UserModel.findOne({ username});
 
   if (!user || !user.isValidPassword(password)) return done(null, false, { mensaje: 'Usuario no encontrado' });
-
+  
   logger.trace('ENCONTRE UN USUARIO');
   return done(null, user);
 };
 
 const signup = async (req, username, password, done) => {
   logger.trace('SIGNUP!!');
+  const email = req.body.email;
+  const age = req.body.age;
+  const celphone = req.body.celphone;
   try {
-    const newUser = await UserModel.create({ username, password });
+    const newUser = await UserModel.create({ username, password, email, age, celphone});
+    enviarEmail(email, "Hola", "holaaa");
     return done(null, newUser);
   } catch (err) {
     logger.error(`Hubo un error ${err}`)

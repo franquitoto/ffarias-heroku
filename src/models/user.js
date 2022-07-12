@@ -1,9 +1,13 @@
 import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
+import { number } from 'yargs';
 
 const UserSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  email: { type: String, required: true},
+  age: { type: Number, required: true},
+  celphone: { type: String, required: true},
   admin: {type: Boolean, default: false},
 });
 UserSchema.pre('save', async function (next) {

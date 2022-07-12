@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-    "engines": {
-      "node": "16.x"
-    },
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
@@ -13,8 +13,8 @@
     "start": "npm run build && node ./build/index.js",
     "ejemplo": "node ./dist/index.js",
     "dev": "nodemon --exec babel-node ./src/index.js",
-    "artillery:cluster" : "artillery quick --count 50 -n 40 http://localhost:8080/info",
-    "artillery:fork" : "artillery quick --count 50 -n 40 http://localhost:8080/info > result_.txt",
+    "artillery:cluster": "artillery quick --count 50 -n 40 http://localhost:8080/info",
+    "artillery:fork": "artillery quick --count 50 -n 40 http://localhost:8080/info > result_.txt",
     "script1": "scripts/script1.sh",
     "star:inspect": "node --inspect dist/index.js --modo=cluster"
   },
@@ -42,6 +42,7 @@
     "minimist": "^1.2.6",
     "mongoose": "^6.3.5",
     "mongose": "^0.0.2-security",
+    "nodemailer": "^6.7.7",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "socket.io": "^4.5.1",
